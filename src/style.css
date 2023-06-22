@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+}
+#detailContainer {
+  background: black;
+  color: white;
+  height: 100vh;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 30s;
+}
+
+.container {
+  position: relative;
+}
+#difference2-1 {
+  opacity: 100;
+}
+
+#difference2-2 {
+  position: absolute;
+  top: 0;
+  left: -1px;
+}
+
+.fadeIn {
+  animation: fadeIn 2s;
+}
+
+.fadeOut {
+  animation: fadeOut 2s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 100;
+  }
+  100% {
+    opacity: 0;
+  }
+}
