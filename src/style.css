@@ -7,7 +7,7 @@ body {
 }
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 2s;
+  animation-duration: 30s;
 }
 
 .container {
