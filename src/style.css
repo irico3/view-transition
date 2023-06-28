@@ -1,36 +1,38 @@
 body {
-  margin: 0;
-}
-#detailContainer {
-  background: black;
-  color: white;
-  height: 100vh;
+  margin: 0 0 500px;
 }
 
+::view-transition {
+  background: red;
+}
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 30s;
+  animation-duration: 2s;
 }
 
 .container {
   position: relative;
+  isolation: isolate;
 }
 #difference2-1 {
-  opacity: 100;
+  opacity: 0;
 }
 
 #difference2-2 {
   position: absolute;
+  opacity: 1;
   top: 0;
   left: -1px;
 }
 
 .fadeIn {
   animation: fadeIn 2s;
+  animation-fill-mode: forwards;
 }
 
 .fadeOut {
   animation: fadeOut 2s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes fadeOut {
@@ -38,15 +40,69 @@ body {
     opacity: 0;
   }
   100% {
-    opacity: 100;
+    opacity: 1;
   }
 }
 
 @keyframes fadeIn {
   0% {
-    opacity: 100;
+    opacity: 1;
   }
   100% {
     opacity: 0;
+  }
+}
+
+#difference3-1 {
+  opacity: 0;
+  mix-blend-mode: plus-lighter;
+}
+
+#difference3-2 {
+  position: absolute;
+  opacity: 1;
+  top: 0;
+  left: -1px;
+  mix-blend-mode: plus-lighter;
+}
+#difference4-1,
+#difference4-2 {
+  view-transition-name: ehomaki;
+}
+
+::view-transition-old(ehomaki),
+::view-transition-new(ehomaki) {
+  animation-duration: 2s;
+}
+
+.is-zoomed {
+  height: 100vh;
+  background: black;
+}
+
+#difference5-1,
+#difference5-2 {
+  view-transition-name: neco;
+}
+
+::view-transition-old(neco),
+::view-transition-new(neco) {
+  mix-blend-mode: difference;
+  animation-duration: 3s;
+}
+
+::view-transition-old(neco) {
+  animation: rotate 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rotate {
+  0% {
+    opacity: 1;
+    transform: rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(360deg);
   }
 }
